@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   has_many   :events,
              :foreign_key => "host_id",
              :dependent => :destroy
