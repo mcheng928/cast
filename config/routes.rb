@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "events#index"
   # Routes for the Invite_list resource:
   # CREATE
   get "/invite_lists/new", :controller => "invite_lists", :action => "new"
