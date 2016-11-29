@@ -20,7 +20,7 @@
       <% @messages.each do |message| %>
       <tr>
         <td><%= message.event.host_id %></td>
-        <td><%= message.user_id %></td>
+        <td><%= message.user.first_name %></td>
         <td><%= message.datetime %></td>
         <td><%= message.likes %></td>
         <td><%= message.body %></td>
