@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Voting_board resource:
+  # CREATE
+  get "/voting_boards/new", :controller => "voting_boards", :action => "new"
+  post "/create_voting_board", :controller => "voting_boards", :action => "create"
+
+  # READ
+  get "/voting_boards", :controller => "voting_boards", :action => "index"
+  get "/voting_boards/:id", :controller => "voting_boards", :action => "show"
+
+  # UPDATE
+  get "/voting_boards/:id/edit", :controller => "voting_boards", :action => "edit"
+  post "/update_voting_board/:id", :controller => "voting_boards", :action => "update"
+
+  # DELETE
+  get "/delete_voting_board/:id", :controller => "voting_boards", :action => "destroy"
+  #------------------------------
+
   # Routes for the Event resource:
   # CREATE
   get "/events/new", :controller => "events", :action => "new"

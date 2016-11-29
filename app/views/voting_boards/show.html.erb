@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Voting Board #<%= @voting_board.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Venue</dt>
+      <dd><%= @voting_board.venue_id %></dd>
+
+      <dt>Event</dt>
+      <dd><%= @voting_board.event_id %></dd>
+
+      <dt>Vote</dt>
+      <dd><%= @voting_board.vote %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/voting_boards" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/voting_boards/<%= @voting_board.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_voting_board/<%= @voting_board.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
