@@ -17,7 +17,7 @@
 
       <% @events.each do |event| %>
       <tr>
-        <td><%= event.host_id %></td>
+        <td><%= event.host.first_name %></td>
         <td><%= event.start_datetime %></td>
         <td><%= event.end_datetime %></td>
         <td>
