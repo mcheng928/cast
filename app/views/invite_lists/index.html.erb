@@ -16,7 +16,7 @@
 
       <% @invite_lists.each do |invite_list| %>
       <tr>
-        <td><%= invite_list.event_id %></td>
+        <td><%= invite_list.event.host_id %></td>
         <td><%= invite_list.invitee_id %></td>
         <td>
           <a href="/invite_lists/<%= invite_list.id %>" class="btn btn-primary">Show</a>
