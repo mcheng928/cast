@@ -1,5 +1,7 @@
 ActiveAdmin.register Event do
 
+ permit_params :host_id, :start_datetime, :end_datetime
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
