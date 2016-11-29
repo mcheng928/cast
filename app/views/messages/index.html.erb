@@ -19,8 +19,20 @@
 
       <% @messages.each do |message| %>
       <tr>
-        <td><%= message.event.host_id %></td>
-        <td><%= message.user.first_name %></td>
+        <td>
+          <% if message.event.present? %>
+            <a href="/events/<%= message.event.id %>">
+              <%= message.event.host_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if message.user.present? %>
+            <a href="/users/<%= message.user.id %>">
+              <%= message.user.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= message.datetime %></td>
         <td><%= message.likes %></td>
         <td><%= message.body %></td>

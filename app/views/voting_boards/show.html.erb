@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Venue</dt>
-      <dd><%= @voting_board.venue_id %></dd>
+      <dd>
+        <% if @voting_board.venue.present? %>
+          <a href="/venues/<%= @voting_board.venue_id %>">
+            <%= @voting_board.venue.address %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Event</dt>
-      <dd><%= @voting_board.event_id %></dd>
+      <dd>
+        <% if @voting_board.event.present? %>
+          <a href="/events/<%= @voting_board.event_id %>">
+            <%= @voting_board.event.host_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Vote</dt>
       <dd><%= @voting_board.vote %></dd>

@@ -16,8 +16,20 @@
 
       <% @invite_lists.each do |invite_list| %>
       <tr>
-        <td><%= invite_list.event.host_id %></td>
-        <td><%= invite_list.invitee.first_name %></td>
+        <td>
+          <% if invite_list.event.present? %>
+            <a href="/events/<%= invite_list.event.id %>">
+              <%= invite_list.event.host_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if invite_list.invitee.present? %>
+            <a href="/users/<%= invite_list.invitee.id %>">
+              <%= invite_list.invitee.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/invite_lists/<%= invite_list.id %>" class="btn btn-primary">Show</a>
           <a href="/invite_lists/<%= invite_list.id %>/edit" class="btn btn-warning">Edit</a>

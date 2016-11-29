@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Host</dt>
-      <dd><%= @event.host_id %></dd>
+      <dd>
+        <% if @event.host.present? %>
+          <a href="/users/<%= @event.host_id %>">
+            <%= @event.host.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Start datetime</dt>
       <dd><%= @event.start_datetime %></dd>

@@ -17,8 +17,20 @@
 
       <% @voting_boards.each do |voting_board| %>
       <tr>
-        <td><%= voting_board.venue.address %></td>
-        <td><%= voting_board.event.host_id %></td>
+        <td>
+          <% if voting_board.venue.present? %>
+            <a href="/venues/<%= voting_board.venue.id %>">
+              <%= voting_board.venue.address %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if voting_board.event.present? %>
+            <a href="/events/<%= voting_board.event.id %>">
+              <%= voting_board.event.host_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= voting_board.vote %></td>
         <td>
           <a href="/voting_boards/<%= voting_board.id %>" class="btn btn-primary">Show</a>

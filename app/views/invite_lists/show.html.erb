@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Event</dt>
-      <dd><%= @invite_list.event_id %></dd>
+      <dd>
+        <% if @invite_list.event.present? %>
+          <a href="/events/<%= @invite_list.event_id %>">
+            <%= @invite_list.event.host_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Invitee</dt>
-      <dd><%= @invite_list.invitee_id %></dd>
+      <dd>
+        <% if @invite_list.invitee.present? %>
+          <a href="/users/<%= @invite_list.invitee_id %>">
+            <%= @invite_list.invitee.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
