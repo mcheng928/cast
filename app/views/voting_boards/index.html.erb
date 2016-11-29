@@ -17,7 +17,7 @@
 
       <% @voting_boards.each do |voting_board| %>
       <tr>
-        <td><%= voting_board.venue_id %></td>
+        <td><%= voting_board.venue.address %></td>
         <td><%= voting_board.event_id %></td>
         <td><%= voting_board.vote %></td>
         <td>
