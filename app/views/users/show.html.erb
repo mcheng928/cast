@@ -60,6 +60,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <div class="form-group">
+        <label for="host_id" class="control-label">
+          Host
+        </label>
+
+        <%= select_tag(:host_id, options_from_collection_for_select(User.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for start_datetime -->
+      <div class="form-group">
+        <label for="start_datetime" class="control-label">
+          Start datetime
+        </label>
+
+        <input type="text" id="start_datetime" name="start_datetime" placeholder="Start datetime" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_datetime -->
+      <div class="form-group">
+        <label for="end_datetime" class="control-label">
+          End datetime
+        </label>
+
+        <input type="text" id="end_datetime" name="end_datetime" placeholder="End datetime" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -91,6 +129,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_message" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :host_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+
+      <!-- Label and input for datetime -->
+      <div class="form-group">
+        <label for="datetime" class="control-label">
+          Datetime
+        </label>
+
+        <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for likes -->
+      <div class="form-group">
+        <label for="likes" class="control-label">
+          Likes
+        </label>
+
+        <input type="text" id="likes" name="likes" placeholder="Likes" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Message
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -122,6 +210,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_invite_list" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :host_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for invitee_id -->
+      <div class="form-group">
+        <label for="invitee_id" class="control-label">
+          Invitee
+        </label>
+
+        <%= select_tag(:invitee_id, options_from_collection_for_select(User.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Invite List
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

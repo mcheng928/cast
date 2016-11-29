@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @invite_list = InviteList.new
+    @message = Message.new
+    @event = Event.new
     @user = User.find(params[:id])
 
     render("users/show.html.erb")

@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    @invite_list = InviteList.new
+    @message = Message.new
+    @voting_board = VotingBoard.new
     @event = Event.find(params[:id])
 
     render("events/show.html.erb")
