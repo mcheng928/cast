@@ -1,6 +1,7 @@
 class InviteListsController < ApplicationController
   def index
-    @invite_lists = InviteList.page(params[:page]).per(10)
+    @q = InviteList.ransack(params[:q])
+    @invite_lists = @q.result(:distinct => true).includes(:event, :invitee).page(params[:page]).per(10)
 
     render("invite_lists/index.html.erb")
   end

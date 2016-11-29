@@ -1,6 +1,7 @@
 class VotingBoardsController < ApplicationController
   def index
-    @voting_boards = VotingBoard.page(params[:page]).per(10)
+    @q = VotingBoard.ransack(params[:q])
+    @voting_boards = @q.result(:distinct => true).includes(:event, :venue).page(params[:page]).per(10)
 
     render("voting_boards/index.html.erb")
   end
