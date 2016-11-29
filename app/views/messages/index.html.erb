@@ -19,7 +19,7 @@
 
       <% @messages.each do |message| %>
       <tr>
-        <td><%= message.event_id %></td>
+        <td><%= message.event.host_id %></td>
         <td><%= message.user_id %></td>
         <td><%= message.datetime %></td>
         <td><%= message.likes %></td>
