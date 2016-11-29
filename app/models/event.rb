@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   # Direct associations
 
+  has_many   :invite_lists,
+             :dependent => :destroy
+
   has_many   :messages,
              :dependent => :destroy
 
