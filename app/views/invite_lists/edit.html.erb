@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @invite_list.errors.any? %>
+  <% @invite_list.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Invite List #<%= @invite_list.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_invite_list/<%= @invite_list.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for event_id -->
+      <div class="form-group">
+        <label for="event_id" class="control-label">
+          Event
+        </label>
+
+        <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @invite_list.event_id %>">
+      </div>
+
+      <!-- Label and input for invitee_id -->
+      <div class="form-group">
+        <label for="invitee_id" class="control-label">
+          Invitee
+        </label>
+
+        <input type="text" id="invitee_id" name="invitee_id" placeholder="Invitee" class="form-control" value="<%= @invite_list.invitee_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Invite List
+      </button>
+      or
+      <a href="/invite_lists/<%= @invite_list.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

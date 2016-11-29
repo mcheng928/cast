@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Invite List #<%= @invite_list.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Event</dt>
+      <dd><%= @invite_list.event_id %></dd>
+
+      <dt>Invitee</dt>
+      <dd><%= @invite_list.invitee_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/invite_lists" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/invite_lists/<%= @invite_list.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_invite_list/<%= @invite_list.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
