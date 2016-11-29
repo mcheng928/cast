@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "events#index"
   # Routes for the Invite_list resource:
   # CREATE
