@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(:distinct => true).includes(:events, :messages, :invite_lists).page(params[:page]).per(10)
+    @users = @q.result(:distinct => true).includes(:events, :invite_lists).page(params[:page]).per(10)
 
     render("users/index.html.erb")
   end
 
   def show
     @invite_list = InviteList.new
-    @message = Message.new
     @event = Event.new
     @user = User.find(params[:id])
 
@@ -27,7 +26,6 @@ class UsersController < ApplicationController
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
     @user.phone_number = params[:phone_number]
-    @user.email = params[:email]
 
     save_status = @user.save
 
@@ -57,7 +55,6 @@ class UsersController < ApplicationController
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
     @user.phone_number = params[:phone_number]
-    @user.email = params[:email]
 
     save_status = @user.save
 
