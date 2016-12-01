@@ -5,9 +5,6 @@ class User < ApplicationRecord
              :foreign_key => "invitee_id",
              :dependent => :destroy
 
-  has_many   :messages,
-             :dependent => :destroy
-
   has_many   :events,
              :foreign_key => "host_id",
              :dependent => :destroy

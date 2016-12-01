@@ -1,14 +1,13 @@
 class EventsController < ApplicationController
   def index
     @q = Event.ransack(params[:q])
-    @events = @q.result(:distinct => true).includes(:venue_options, :messages, :invite_lists, :host).page(params[:page]).per(10)
+    @events = @q.result(:distinct => true).includes(:venue_options, :invite_lists, :host).page(params[:page]).per(10)
 
     render("events/index.html.erb")
   end
 
   def show
     @invite_list = InviteList.new
-    @message = Message.new
     @voting_board = VotingBoard.new
     @event = Event.find(params[:id])
 
